@@ -319,7 +319,7 @@ throttled_receive(Context * const context)
 int
 main(int argc, char *argv[])
 {
-    char             name[100U] = ".";
+    char             name = "www.google.com";
     Context          context;
     struct addrinfo *ai;
     const char      *host;
@@ -360,10 +360,10 @@ main(int argc, char *argv[])
     srand(0U);
     assert(send_count > 0UL);
     do {
-        if (rand() > REPEATED_NAME_PROBABILITY) {
-            get_random_name(name, sizeof name);
-        }
-        type = get_random_type();
+        // if (rand() > REPEATED_NAME_PROBABILITY) {
+        //     get_random_name(name, sizeof name);
+        // }
+        type = TYPE_A; // get_random_type();
         blast(&context, name, type);
         throttled_receive(&context);
     } while (--send_count > 0UL);
