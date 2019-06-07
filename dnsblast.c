@@ -319,7 +319,7 @@ throttled_receive(Context * const context)
 int
 main(int argc, char *argv[])
 {
-    char             name = "www.google.com";
+    char            *name = "www.google.com";
     Context          context;
     struct addrinfo *ai;
     const char      *host;
